@@ -72,7 +72,7 @@ vue-lazyload:图片懒加载
 图片：比用用户网络不好，服务器的数据没有回来，
 总不可能让用户看白色，至少有一个默认图片在展示。
 
-
+图片和json是默认对外暴露的,用一版本：npm i vue-lazyload@1.3.3 --save
 
 
 
@@ -96,25 +96,6 @@ vue-lazyload:图片懒加载
 4：注册插件的时候，用中文，以及需要验证的字段【用中文显示提示形式】
 5：在入口文件需要引入执行一次
 6:使用vee-valadiate插件
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 8)vee-validate 基本使用
@@ -161,3 +142,49 @@ return value
 getMessage: field => field + '必须同意'
 })
 
+
+
+路由懒加载
+就是再路由组建的时候，按需加载，而不是上来就引入，可以提升加载速度，变得更加高效
+
+
+
+打包上线
+map文件的作用是在在打包压缩后，就可以像未加密的代码一样，准确输出哪一行有错误
+
+购买服务器
+阿里云 腾讯云
+
+设置服务器安全组，让服务器端口号打开
+利用xshell登录服务器
+
+linux
+/是根目录
+cd 进入到某个目录
+ls 列出当前目录下的文件·
+mkdir 创建文件夹
+pwd 显示当前所在的目录
+
+
+xftp上传文件，是可以直接上传到服务器的，不需要先登录到服务器，直接上传到服务器的某个目录下。
+
+
+nginx
+为什么访问服务器ip地址就可以访问到我们的项目
+
+nignx是可以反向代理，找其他服务器要数据，
+xshell进入根目录的etc
+找到nginx.conf文件，修改里面的配置，如果没安装nginx，可以先安装nginx
+如果想安装nginx yum install nginx -y
+nginx.conf文件配置
+编辑location / {
+root /root/jch/www/shangpinhui; # 项目的根目录
+index index.html ; # 首页文件
+}
+
+2项目的数据来自哪里？
+location /api {
+        proxy_pass 网站
+}
+
+nginx服务器跑起来之后，就可以通过ip地址访问到我们的项目了。
