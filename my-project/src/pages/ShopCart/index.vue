@@ -82,7 +82,7 @@
           <i class="summoney">¥{{ totalPrice }}</i>
         </div>
         <div class="sumbtn">
-          <router-link class="sum-btn"  to="/trade">结算</router-link>
+          <router-link class="sum-btn" to="/trade">结算</router-link>
         </div>
       </div>
     </div>
@@ -169,7 +169,6 @@ export default {
         alert(error.message);
       }
     },
-    //修改某个产品的勾选状态
     //修改某个产品的勾选状态
     async updateChecked(cart, event) {
       //带给服务器的参数isChecked，不是布尔值，应该是0|1

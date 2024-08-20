@@ -1,17 +1,19 @@
 <template>
   <div class="pagination">
     <!-- 上面部分 -->
-    <button :disabled="pageNo == 1" @click="$emit('getPageNo', pageNo - 1)">
+    <button :disabled="pageNo == 1" 
+    @click="$emit('getPageNo', pageNo - 1)">
       上一页
     </button>
+
     <button
       v-show="startNumAndEndNumber.start > 1"
       @click="$emit('getPageNo', 1)"
       :class="{ active: pageNo == 1 }"
-    >
-      1
+    >1
     </button>
     <button v-show="startNumAndEndNumber.start > 2">···</button>
+
     <!-- 中间部分 -->
     <button
       v-for="(page, index) in startNumAndEndNumber.end"
@@ -22,6 +24,8 @@
     >
       {{ page }}
     </button>
+
+    
     <!-- 下面部分 -->
     <button v-show="startNumAndEndNumber.end < totalPage - 1">···</button>
     <button
