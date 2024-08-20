@@ -1,9 +1,9 @@
 <template>
   <div class="spec-preview">
-    <img :src="imgObj.imgUrl" ref="big"/>
+    <img :src="imgObj.imgUrl" />
     <div class="event" @mousemove="handler"></div>
     <div class="big">
-      <img :src="imgObj.imgUrl" />
+      <img :src="imgObj.imgUrl" ref="big" />
     </div>
     <!-- 是蒙版 -->
     <div class="mask" ref="mark"></div>

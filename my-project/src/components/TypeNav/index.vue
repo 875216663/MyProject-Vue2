@@ -39,6 +39,7 @@
                         <a
                           :data-categoryName="c2.categoryName"
                           :data-catagory2Id="c2.categoryId"
+                          
                           >{{ c2.categoryName }}</a
                         >
                         <!-- 会卡顿因为太多组件一起加载 -->
@@ -103,6 +104,7 @@ export default {
     changeIndex: throttle(function (index) {
       this.currentIndex = index;
     }, 50),
+    //鼠标移入，若不在首页，就展示
     enterShow() {
       if (this.$route.path != "/home") {
         this.show = true;
@@ -146,7 +148,7 @@ export default {
   },
 
   mounted() {
-    //如果是首页，就展示，如果是search页面，就不展示
+    //确保只有首页有展开的三级联动数据
     if (this.$route.path != "/home") {
       this.show = false;
     }
@@ -198,8 +200,8 @@ export default {
       .all-sort-list2 {
         // 这个是整个分类的样式
         // .item:hover {
-        //   background: #4d94e7;
-        // }
+        //   background: #209136;
+      // }
         .item {
           h3 {
             line-height: 30px;
