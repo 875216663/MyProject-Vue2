@@ -12,17 +12,17 @@
             </li>
           </ul>
           <ul class="fl sui-tag">
-            <!-- 分类的面包屑 -->
+            <!-- 分类的面包屑，query -->
             <li class="with-x" v-if="searchParams.categoryName">
               {{ searchParams.categoryName }}
               <i @click="removeCategoryName">x</i>
             </li>
-            <!-- 关键字的面包屑 -->
+            <!-- 关键字的面包屑,输入框的 -->
             <li class="with-x" v-if="searchParams.keyword">
               {{ searchParams.keyword }}
               <i @click="removeKeyword">x</i>
             </li>
-            <!-- 品牌的面包屑 -->
+            <!-- 品牌的面包屑，trademark -->
             <li class="with-x" v-if="searchParams.trademark">
               <!-- 以：为分界线切割成 ["trademark", "nike"]，选取第二个元素-->
               {{ searchParams.trademark.split(":")[1] }}
@@ -287,7 +287,7 @@ export default {
       let orginFlag = this.searchParams.order.split(":")[0]; //初始状态的order是1还是2
       let orginSort = this.searchParams.order.split(":")[1]; //初始状态的order是desc还是asc
       let newOrder = ""; //准备一个新的order
-      if (flag == orginFlag) {
+      if (flag == orginOrder) {
         newOrder = `${orginFlag}:${orginSort == "desc" ? "asc" : "desc"}`; //点击如果是升序就变成降序,如果是将降序就变成升序
       } else {
         newOrder = `${flag}:${"desc"}`; //点击价格后flag变成2了，直接改为desc,originflag也变成2了，所以还是会走if里面的判断
